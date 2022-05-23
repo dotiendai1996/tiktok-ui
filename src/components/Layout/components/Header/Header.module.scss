@@ -103,3 +103,14 @@
   }
 
 }
+
+.more-btn {
+  background-color: transparent;
+  margin-left: 16px;
+  font-size: 2rem;
+  padding: 8px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
