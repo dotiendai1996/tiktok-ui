@@ -16,6 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0px var(--padding-horizontal-container);
 
     @media screen and (max-width: 1150px) {
       width: 100%;
