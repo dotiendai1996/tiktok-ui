@@ -105,6 +105,19 @@
 
 }
 
+.action {
+  display: flex;
+  align-items: center;
+}
+
+.upload {
+  background-color: transparent;
+  color: var(--text-color);
+  padding: 4px 12px;
+  cursor: pointer;
+  font-size: 2.2rem;
+}
+
 .more-btn {
   background-color: transparent;
   margin-left: 16px;
@@ -113,5 +126,22 @@
 
   &:hover {
     cursor: pointer;
+  }
+}
+
+.thumb-avatar {
+  width: 32px;
+  height: 32px;
+  margin-left: 16px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  img {
+    max-width: 100%;
+    width: 100%;
   }
 }
