@@ -110,12 +110,36 @@
   align-items: center;
 }
 
-.upload {
+.btn-icon {
   background-color: transparent;
   color: var(--text-color);
-  padding: 4px 12px;
+  padding: 3px;
   cursor: pointer;
   font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+
+  &.inbox {
+    position: relative;
+
+    .unread {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      position: absolute;
+      padding: 5px;
+      top: -3px;
+      right: 0px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+  }
 }
 
 .more-btn {

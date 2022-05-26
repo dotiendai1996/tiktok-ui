@@ -15,7 +15,6 @@ import {
   faSpinner,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import { faMixcloud } from "@fortawesome/free-brands-svg-icons";
 import TippyHeadless from "@tippyjs/react/headless";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
@@ -26,6 +25,8 @@ import { Wrapper as PopperWrapper } from "~/components/Popper";
 import AccountItem from "~/components/AccountItem";
 import Button from "~/components/Button";
 import Menu from "~/components/Popper/Menu";
+import { InboxIcon, MessagesIcon } from "~/components/Icons";
+import Image from "~/components/Image";
 
 const cx = classNames.bind(styles);
 
@@ -122,22 +123,27 @@ function Header() {
         </TippyHeadless>
 
         <div className={cx("action")}>
+          <Button type="secondary" leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+            Upload
+          </Button>
           {userProfile ? (
             <>
-              <Tippy
-                interactive
-                offset={[12, 8]}
-                delay={[0, 700]}
-                placement="bottom-end"
-                content="Upload file"
-              >
-                <button className={cx("upload")}>
-                  <FontAwesomeIcon icon={faMixcloud} />
+              <Tippy interactive placement="bottom" content="Message">
+                <button className={cx("btn-icon")}>
+                  <MessagesIcon />
                 </button>
               </Tippy>
+
+              <Tippy interactive placement="bottom" content="Inbox">
+                <button className={cx("btn-icon", "inbox")}>
+                  <InboxIcon width="3.2rem" height="3.2rem" />
+                  <span className={cx("unread")}>10</span>
+                </button>
+              </Tippy>
+
               <Menu items={userMenu} onChange={handleMenuChange}>
                 <div className={cx("thumb-avatar")}>
-                  <img
+                  <Image
                     src="https://toigingiuvedep.vn/wp-content/uploads/2021/01/avatar-dep-cute.jpg"
                     alt="Avatar"
                   />
@@ -146,9 +152,6 @@ function Header() {
             </>
           ) : (
             <>
-              <Button type="secondary" leftIcon={<FontAwesomeIcon icon={faPlus} />}>
-                Tải lên
-              </Button>
               <Button type="primary">Đăng nhập</Button>
               <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
                 <button className={cx("more-btn")}>
