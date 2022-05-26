@@ -15,6 +15,12 @@
     object-fit: cover;
     width: 40px;
     height: 40px;
+
+    img {
+        width: 100%;
+        max-width: 100%;
+        display: block;
+    }
 }
 
 .info {
