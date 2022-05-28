@@ -1,4 +1,4 @@
-import { forwardRef, useRef } from "react";
+import { forwardRef } from "react";
 import classNames from "classnames/bind";
 import { Link } from "react-router-dom";
 import style from "./Button.module.scss";

@@ -8,6 +8,7 @@ import AccountItem from "~/components/AccountItem";
 import styles from "./Search.module.scss";
 import { SearchIcon } from "~/components/Icons";
 import { useDebounce } from "~/hooks";
+import { search } from "~/apiServices/search";
 
 const cx = classNames.bind(styles);
 
@@ -27,19 +28,15 @@ function Search() {
       return;
     }
     setLoading(true);
-    fetch(
-      `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-        debounced,
-      )}&type=less`,
-    )
-      .then((response) => response.json())
-      .then((result) => {
-        setSearchResult(result.data ? result.data : []);
-        setLoading(false);
-      })
-      .catch(() => {
-        setLoading(false);
-      });
+
+    const fetchApi = async () => {
+      setLoading(true);
+      const result = await search(searchValue, "less");
+      setSearchResult(result);
+      setLoading(false);
+    };
+    fetchApi();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debounced]);
 
   const handleClear = () => {
