@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 
 const defaultFnc = () => {};
 
-function Menu({ children, items = [], onChange = defaultFnc }) {
+function Menu({ children, items = [], hideOnClick = false, onChange = defaultFnc }) {
   const [history, setHistory] = useState([{ data: items }]);
   const current = history[history.length - 1];
 
@@ -39,6 +39,7 @@ function Menu({ children, items = [], onChange = defaultFnc }) {
 
   return (
     <Tippy
+      hideOnClick={hideOnClick}
       interactive
       placement="bottom-end"
       delay={[0, 700]}

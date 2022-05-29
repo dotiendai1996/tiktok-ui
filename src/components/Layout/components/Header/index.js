@@ -11,6 +11,7 @@ import {
   faSignOut,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 
@@ -22,7 +23,7 @@ import Menu from "~/components/Popper/Menu";
 import { InboxIcon, MessagesIcon } from "~/components/Icons";
 import Image from "~/components/Image";
 import Search from "../Search";
-import { Link } from "react-router-dom";
+import routesConfig from "~/config/routes";
 
 const cx = classNames.bind(styles);
 
@@ -83,7 +84,7 @@ function Header() {
   return (
     <header className={cx("wrapper")}>
       <div className={cx("container")}>
-        <Link className={cx("logo")} to="/">
+        <Link className={cx("logo")} to={routesConfig.home}>
           <img src={images.logo} alt="Tiktok logo" />
         </Link>
         <Search />
