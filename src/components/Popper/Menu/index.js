@@ -48,7 +48,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFnc
         <div className={cx("wrapper")} tabIndex="-1" {...attrs}>
           <PopperWrapper className={cx("popper-wrapper")}>
             {history.length > 1 && <Header title={"Language"} onBack={handleBack} />}
-            {renderItems()}
+            <div className={cx("menu-body")}>{renderItems()}</div>
           </PopperWrapper>
         </div>
       )}
